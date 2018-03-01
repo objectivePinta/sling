@@ -12,9 +12,9 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from '../webpack.config.dev';
 import url from 'url';
 import proxy from 'proxy-middleware';
-
+const port = process.env.PORT || 3000;
 const bundler = webpack(config);
-var proxyOptions = url.parse('http://localhost:8080');
+var proxyOptions = url.parse('https://announcer-backend.herokuapp.com');
 proxyOptions.route = '/api';
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
